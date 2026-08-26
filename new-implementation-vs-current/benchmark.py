@@ -64,10 +64,10 @@ sprite.rect = sprite.image.get_rect(center=(0, 0))
 
 perc_changes = []
 
-for _ in range(250):
+for _ in range(500):
     ag = gen_ag()
     gc.collect()
-    time.sleep(.2)
+    time.sleep(.1)
 
     before_old_run = time.perf_counter()
     spritecollide_old(sprite, ag, True)
@@ -75,7 +75,7 @@ for _ in range(250):
   
     ag = gen_ag()
     gc.collect()
-    time.sleep(.2)
+    time.sleep(.1)
 
     before_new_run = time.perf_counter()
     spritecollide_new(sprite, ag, True)
