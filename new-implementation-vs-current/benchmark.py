@@ -86,6 +86,7 @@ for _ in range(500):
     print(f"Percentage change:\t{perc_change:.2f}%")
 
 print(f"Average percentage change:\t{statistics.mean(perc_changes):.2f}%")
+print(f"Population Standard Deviation:\t{statistics.pstdev(perc_changes):.2f}%")
 
 import json
 with open("perc-changes.txt", "w") as f:
