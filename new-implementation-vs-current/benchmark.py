@@ -66,14 +66,17 @@ perc_changes = []
 
 for _ in range(250):
     ag = gen_ag()
+    gc.collect()
+    time.sleep(.2)
+
     before_old_run = time.perf_counter()
     spritecollide_old(sprite, ag, True)
     old_time = time.perf_counter() - before_old_run
-
-    time.sleep(.2)
-    gc.collect()
-
+  
     ag = gen_ag()
+    gc.collect()
+    time.sleep(.2)
+
     before_new_run = time.perf_counter()
     spritecollide_new(sprite, ag, True)
     new_time = time.perf_counter() - before_new_run
@@ -81,7 +84,5 @@ for _ in range(250):
     perc_change = ((new_time - old_time) / abs(old_time)) * 100
     perc_changes.append(perc_change)
     print(f"Percentage change:\t{perc_change:.2f}%")
-    time.sleep(.2)
-    gc.collect()
 
 print(f"Average percentage change:\t{statistics.mean(perc_changes):.2f}%")
