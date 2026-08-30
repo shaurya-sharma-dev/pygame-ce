@@ -36,10 +36,8 @@ def spritecollide_old(sprite, group, dokill, collided=None):
             group_sprite.kill()
     return collided_sprites
 
-def spritecollide_new(sprite, group, dokill, collided=None, exclude=None):
+def spritecollide_new(sprite, group, dokill, collided=None, exclude=()):
     # Copied from PR.
-    exclude = exclude if exclude is not None else tuple()
-
     collided = (
         collided
         if collided is not None
